@@ -27,6 +27,9 @@ jobs:
       - name: Generate application icon
         run: python generate_icon.py
 
+      - name: Run regression tests
+        run: python -m pytest -q
+
       - name: Build Combine Photos Studio
         shell: cmd
         run: |
