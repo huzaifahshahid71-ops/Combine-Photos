@@ -1,0 +1,7 @@
+customtkinter>=5.2.2
+Pillow>=10.4
+numpy>=2.0
+pillow-heif>=0.18
+tifffile>=2024.8
+imagecodecs>=2024.6
+pyinstaller>=6.10
