@@ -5,3 +5,4 @@ pillow-heif>=0.18
 tifffile>=2024.8
 imagecodecs>=2024.6
 pyinstaller>=6.10
+pytest>=8.0
