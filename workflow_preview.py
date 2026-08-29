@@ -248,6 +248,7 @@ class PreviewMixin:
             return None
         return None
 
+    @staticmethod
     def _parse_exif_datetime(value: str) -> Optional[datetime]:
         try:
             return datetime.strptime(str(value), "%Y:%m:%d %H:%M:%S")
