@@ -16,8 +16,8 @@ from ui_composer import ComposerMixin
 from ui_secondary import SecondaryPagesMixin
 
 APP_TITLE = "Combine Photos Studio"
-APP_VERSION = "1.0"
-APP_USER_MODEL_ID = "CombinePhotosStudio.Windows.1.0"
+APP_VERSION = "1.0.1"
+APP_USER_MODEL_ID = "CombinePhotosStudio.Windows.1.0.1"
 
 
 def safe_resource_path(name: str) -> Path | None:
@@ -91,6 +91,7 @@ class ImageCombinerApp(ctk.CTk, ComposerMixin, SecondaryPagesMixin, BackendMixin
         self._animate_progress_bars()
         self.bind("<Control-s>", lambda _e: self.combine_and_save())
 
+    @staticmethod
     def _apply_windows_identity() -> None:
         if not sys.platform.startswith("win"):
             return
