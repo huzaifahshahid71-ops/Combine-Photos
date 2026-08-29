@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+build/
+dist/
+*.spec
+*.log
+.DS_Store
+Thumbs.db
+combine_photos_studio.ico
+combine_photos_studio_icon.png
