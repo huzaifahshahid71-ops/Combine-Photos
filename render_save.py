@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import List, Optional, Tuple
 import numpy as np
 from PIL import Image
-from combine_photos_core import HEIF_AVAILABLE, TIFFFILE_AVAILABLE
+from combine_photos_core import HEIF_AVAILABLE, TIFFFILE_AVAILABLE, STANDARD_CANVAS_PIXEL_LIMIT
 try:
     import tifffile
 except Exception:
