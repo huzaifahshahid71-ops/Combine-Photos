@@ -22,25 +22,30 @@ if %errorlevel%==0 (
     set "PY=python"
 )
 
-echo [1/5] Installing build dependencies...
+echo [1/6] Installing build dependencies...
 %PY% -m pip install --upgrade pip
 if errorlevel 1 goto :fail
 %PY% -m pip install -r requirements.txt
 if errorlevel 1 goto :fail
 
 echo.
-echo [2/5] Generating application icon...
+echo [2/6] Running regression tests...
+%PY% -m pytest -q
+if errorlevel 1 goto :fail
+
+echo.
+echo [3/6] Generating application icon...
 %PY% generate_icon.py
 if errorlevel 1 goto :fail
 
 echo.
-echo [3/5] Cleaning previous output...
+echo [4/6] Cleaning previous output...
 if exist build rmdir /s /q build
 if exist dist rmdir /s /q dist
 if exist CombinePhotosStudio.spec del /q CombinePhotosStudio.spec
 
 echo.
-echo [4/5] Building one-file Windows application...
+echo [5/6] Building one-file Windows application...
 %PY% -m PyInstaller ^
   --noconfirm ^
   --clean ^
@@ -59,7 +64,7 @@ echo [4/5] Building one-file Windows application...
 if errorlevel 1 goto :fail
 
 echo.
-echo [5/5] Verifying one-file archive...
+echo [6/6] Verifying one-file archive...
 if not exist "dist\CombinePhotosStudio.exe" goto :fail
 for %%A in ("dist\CombinePhotosStudio.exe") do set SIZE=%%~zA
 if %SIZE% LSS 5000000 (
